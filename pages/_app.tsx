@@ -1,4 +1,6 @@
+import { TolgeeProvider } from '@tolgee/react';
 import React, { useEffect, useState } from 'react';
+import { REACT_APP_TOLGEE_API_URL, REACT_APP_TOLGEE_API_KEY } from '../API';
 import '../styles/App.css';
 import Login from './login';
 import {People} from "./people";
@@ -62,16 +64,23 @@ function App() {
   }, [user])
 
   return (
-    <div className="App">
-      {user.data.data.token === "" ? (
-        <>
-          <Login userSetter={setUser}/>
-        </>
-      ) : display()}
-      {
-        user.data.data.token !== ""  ? <button onClick={handleLogOff}>log out</button> : null
-      }
-    </div>
+    <TolgeeProvider
+      filesUrlPrefix="i18n/"
+      apiUrl={REACT_APP_TOLGEE_API_URL}
+      apiKey={REACT_APP_TOLGEE_API_KEY}
+      loadingFallback={<>Loading...</>}
+  >
+      <div className="App">
+        {user.data.data.token === "" ? (
+          <>
+            <Login userSetter={setUser}/>
+          </>
+        ) : display()}
+        {
+          user.data.data.token !== ""  ? <button onClick={handleLogOff}>log out</button> : null
+        }
+      </div>
+    </TolgeeProvider>
   );
 }
 

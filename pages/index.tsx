@@ -3,13 +3,14 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import {LoginButton} from '../styles/login'
-import { useAuth } from '../utils/auth/auth-context';
+import { useAuth } from '../utils/auth/contexts/auth-context';
 
 
 export default function Home() {
   const { isAuthenticated }: any = useAuth();
 
   console.log(`isAutenticated ${isAuthenticated}`)
+
   return (
     <div className={styles.container}>
       <Link href="/loginContextTest">Login Context Nav</Link><br />

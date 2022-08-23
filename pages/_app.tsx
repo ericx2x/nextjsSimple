@@ -1,5 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import { AuthProvider } from '../utils/auth/auth-context';
+import { AuthProvider } from '../utils/auth/contexts/auth-context';
 
 const GlobalStyle = createGlobalStyle`
   body {

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { LoginButton } from "../styles/login";
-import { useAuth } from "../utils/auth/auth-context";
+import { useAuth } from "../utils/auth/contexts/auth-context";
 
 const LoginSection = () => {
   const { login }: any = useAuth();

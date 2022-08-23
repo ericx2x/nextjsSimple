@@ -29,8 +29,7 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "src"
-, "utils/auth/auth-context.js"  ],
+    "src"  ],
   "exclude": [
     "node_modules",
     "**/*.test.ts"

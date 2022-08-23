@@ -1,47 +1,41 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import styles from '../styles/Home.module.css'
-import {LoginButton} from '../styles/login'
-import { useAuth } from '../utils/auth/auth-context';
-
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "../styles/Home.module.css";
+import { LoginButton } from "../styles/login";
+import { useAuth } from "../utils/auth/auth-context";
 
 const LoginSection = () => {
+  const { login }: any = useAuth();
 
-    const { login }: any = useAuth();
-
-    return (
-        <div>
-            <h2>Login</h2>
-            <button onClick={login}>Login</button>
-        </div>
-    )
-}
+  return (
+    <div>
+      <h2>Login</h2>
+      <button onClick={login}>Login</button>
+    </div>
+  );
+};
 
 const LogoutSection = () => {
+  const { logout }: any = useAuth();
 
-    const { logout }: any = useAuth();
-
-    return (
-        <div>
-            <h2>Logout</h2>
-            <button onClick={logout}>Logout</button>
-        </div>
-    )
-}
-
+  return (
+    <div>
+      <h2>Logout</h2>
+      <button onClick={logout}>Logout</button>
+    </div>
+  );
+};
 
 export default function Home() {
+  const { isAuthenticated }: any = useAuth();
 
-    const { isAuthenticated }: any = useAuth();
-
-    console.log(`isAutenticated ${isAuthenticated}`)
+  console.log(`isAutenticated ${isAuthenticated}`);
 
   return (
     <div className={styles.container}>
       <Link href="/">Homepage Nav</Link>
-      <LoginSection />
-      <LogoutSection />
+      {!isAuthenticated ? <LoginSection /> : <LogoutSection />}
       <LoginButton primary={false}>
         <div>hello world - {isAuthenticated}</div>
       </LoginButton>
@@ -52,12 +46,10 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to login context test page
-        </h1>
+        <h1 className={styles.title}>Welcome to login context test page</h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>
         </p>
 
@@ -98,12 +90,12 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
     </div>
-  )
+  );
 }

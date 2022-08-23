@@ -330,6 +330,24 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tolgee/core@^4.8.0":
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/@tolgee/core/-/core-4.8.0.tgz#90e0beb0e1d19ca7a82feb718942c079c8b67d7f"
+  integrity sha512-l50pCnOPybLAlasstP4p+1rqOsn6HwgdJRf7aMJeIy/dUhmCEQlz8JW+QNTWzu1DaMI2zshhl3WCdTNVFswoEA==
+
+"@tolgee/react@^4.8.0":
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/@tolgee/react/-/react-4.8.0.tgz#734cf76ebd733c022912d837eadba743065109a6"
+  integrity sha512-XCL6Q7rlLUV57UtflzB5mHv1vAn8TyZ3L/f9GpVCbUdfNPs0GMd/REi14aK5xM808VW1KhMeP0pmYB/VDFC5vg==
+  dependencies:
+    "@tolgee/core" "^4.8.0"
+    "@tolgee/ui" "^4.8.0"
+
+"@tolgee/ui@^4.8.0":
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/@tolgee/ui/-/ui-4.8.0.tgz#e68b914082b16c46ef969c233d33f23d4f7a5356"
+  integrity sha512-ZTpfyxfNq9FFFTCDmA8p8KMPvGSmfNwZRyT/sVcc4foBJsEA7v3vUNGZhD34knFifkVKw9TBq3zU/lcg+vNtdg==
+
 "@types/hoist-non-react-statics@*":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"

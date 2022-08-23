@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { loginWithEmailAndPassword } from '../API/Users/axiosCalls';
 import { loginStyles } from '../StyledComponents';
+import { useTranslate} from "@tolgee/react";
+import { useSetLanguage, useCurrentLanguage } from '@tolgee/react';
 
 const handleInputChange = (event: any, setter: Function) => {
     setter(event.target.value)
@@ -8,7 +10,6 @@ const handleInputChange = (event: any, setter: Function) => {
 const handleLoggin = async (password: string, email: string, resSetter: Function) => {
     resSetter(await loginWithEmailAndPassword({ email, password }))
 }
-
 interface LoginProps {
     userSetter: Function
 }
@@ -19,6 +20,10 @@ const Login = ({userSetter}: LoginProps) => {
     const [password, setPassword] = useState('');
     const [res, setRes] = useState('');
     const {Title, Button, Input, Container} = loginStyles;
+    const t = useTranslate();
+    const setLanguage = useSetLanguage();
+    const getLanguage = useCurrentLanguage();
+
 
     //there should be logic here to determine if this is a valid token or not
     useEffect(()=>{
@@ -34,13 +39,20 @@ const Login = ({userSetter}: LoginProps) => {
     <Container>
         <Title>test login</Title>
         <div>
-            <Input name="email" required placeholder="Email"
+            <Input name="userName" required placeholder={t("username")}
              onKeyUp={(event: Object) => handleInputChange(event, setEmail)}/>
-            <Input name="password" required placeholder="Password" type="password"
+            <Input name="password" required placeholder={ t("password") } type="password"
              onKeyUp={(event: Object) => handleInputChange(event, setPassword)}/>
         </div>
         <Button onClick={()=>handleLoggin(password, email, setRes)}> login </Button>
         <Button onClick={()=>handleLoggin("nurse", "dennis@promedsoftware.com", setRes)}> login as Dennis </Button>
+        <select
+            onChange={(e) => setLanguage(e.target.value)}
+            value={getLanguage()}
+            >
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+    </select>
     </Container>)
 };
 

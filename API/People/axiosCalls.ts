@@ -1,5 +1,6 @@
 import axios from "axios";
-import { ApiResponse, API_URL } from ".."
+import { ApiResponse } from ".."
+import { API_URL } from "../Config/.configuration";
 import {Person} from "./personTypes"
 
 

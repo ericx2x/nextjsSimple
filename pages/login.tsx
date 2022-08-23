@@ -29,7 +29,7 @@ const Login = ({userSetter}: LoginProps) => {
     useEffect(()=>{
         if(res !== ''){
             console.log(res)
-            userSetter(res)
+            // userSetter(res)
         }
     }, [res])
 

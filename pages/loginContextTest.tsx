@@ -1,20 +1,49 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import styles from '../styles/Home.module.css'
 import {LoginButton} from '../styles/login'
 import { useAuth } from '../utils/auth/auth-context';
 
 
-export default function Home() {
-  const { isAuthenticated }: any = useAuth();
+const LoginSection = () => {
 
-  console.log(`isAutenticated ${isAuthenticated}`)
+    const { login }: any = useAuth();
+
+    return (
+        <div>
+            <h2>Login</h2>
+            <button onClick={login}>Login</button>
+        </div>
+    )
+}
+
+const LogoutSection = () => {
+
+    const { logout }: any = useAuth();
+
+    return (
+        <div>
+            <h2>Logout</h2>
+            <button onClick={logout}>Logout</button>
+        </div>
+    )
+}
+
+
+export default function Home() {
+
+    const { isAuthenticated }: any = useAuth();
+
+    console.log(`isAutenticated ${isAuthenticated}`)
+
   return (
     <div className={styles.container}>
-      <Link href="/loginContextTest">Login Context Nav</Link><br />
+      <Link href="/">Homepage Nav</Link>
+      <LoginSection />
+      <LogoutSection />
       <LoginButton primary={false}>
-        <div>hello world</div>
+        <div>hello world - {isAuthenticated}</div>
       </LoginButton>
       <Head>
         <title>Create Next App</title>
@@ -24,7 +53,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to login context test page
         </h1>
 
         <p className={styles.description}>

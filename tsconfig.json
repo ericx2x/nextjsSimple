@@ -10,7 +10,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "CommonJS",
@@ -30,7 +30,7 @@
     "**/*.ts",
     "**/*.tsx",
     "src"
-  ],
+, "utils/auth/auth-context.js"  ],
   "exclude": [
     "node_modules",
     "**/*.test.ts"
